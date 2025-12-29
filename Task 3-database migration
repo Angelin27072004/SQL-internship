@@ -1,0 +1,20 @@
+ Export MySQL Database
+mysqldump -u root -p company_db > company_db.sql
+
+Modify SQL File
+
+Remove ENGINE=InnoDB
+
+Replace AUTO_INCREMENT → SERIAL
+
+Replace DATETIME → TIMESTAMP
+
+ Import into PostgreSQL
+psql -U postgres -d company_db < company_db.sql
+
+Data Integrity Checks
+-- Record count check
+SELECT COUNT(*) FROM employees;
+
+-- Null validation
+SELECT * FROM employees WHERE emp_id IS NULL;
