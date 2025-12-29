@@ -1,0 +1,5 @@
+MySQL Backup
+mysqldump -u root -p company_db > company_backup.sql
+
+MySQL Restore
+mysql -u root -p company_db < company_backup.sql
