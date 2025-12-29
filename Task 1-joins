@@ -1,0 +1,31 @@
+1. INNER JOIN
+SELECT e.emp_name, d.dept_name
+FROM Employees e
+INNER JOIN Departments d
+ON e.dept_id = d.dept_id;
+
+
+
+2. LEFT JOIN
+SELECT e.emp_name, d.dept_name
+FROM Employees e
+LEFT JOIN Departments d
+ON e.dept_id = d.dept_id;
+
+
+
+3. RIGHT JOIN
+SELECT e.emp_name, d.dept_name
+FROM Employees e
+RIGHT JOIN Departments d
+ON e.dept_id = d.dept_id;
+
+
+
+4. FULL JOIN
+SELECT e.emp_name, d.dept_name
+FROM Employees e
+FULL OUTER JOIN Departments d
+ON e.dept_id = d.dept_id;
+
+
