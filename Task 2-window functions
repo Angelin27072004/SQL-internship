@@ -1,0 +1,22 @@
+A. Window Function – Running Total
+SELECT emp_id, sale_date, amount,
+SUM(amount) OVER (PARTITION BY emp_id ORDER BY sale_date) AS running_total
+FROM Sales;
+
+B. Subquery – Employees with Above Average Sales
+SELECT emp_id, SUM(amount) AS total_sales
+FROM Sales
+GROUP BY emp_id
+HAVING SUM(amount) >
+(SELECT AVG(total_amount)
+ FROM (SELECT SUM(amount) AS total_amount FROM Sales GROUP BY emp_id) t);
+
+C. CTE – Monthly Sales Report
+WITH MonthlySales AS (
+  SELECT emp_id,
+         MONTH(sale_date) AS month,
+         SUM(amount) AS total_sales
+  FROM Sales
+  GROUP BY emp_id, MONTH(sale_date)
+)
+SELECT * FROM MonthlySales;
